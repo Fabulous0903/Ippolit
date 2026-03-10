@@ -1,0 +1,38 @@
+###___Items___###
+
+#[item.placeholder]
+#display_name = "name to be displayed in-game"
+#item_description = """description of the item"""
+#container = false/true determines if item can contain other items
+#traits = [enter valid traits] 
+#[items.placeholder.stats]
+#physical_damage = 0 - 100
+#accuracy = 0 - 100
+#the stats below are relevant for clothing items
+#damage_reduction = 0 - 100
+#ventilation = 0 - 100
+
+[items.satchel]
+display_name = "satchel"
+item_description = "A brown "
+container = true
+contents = ["kebbie"]
+
+[items.kebbie]
+display_name = "kebbie"
+item_description = """A hefty stick made for walking. It's tall and slender, almost stretching up to your face,
+with a shepards hook at the end, and with a red cloth twined around where you would place your hand.
+You contemplate it's straightness, it's as though nature destined it for a life of walking."""
+container = false
+traits = ["long", "stick"]
+[items.kebbie.stats]
+physical_damage = 10
+
+[items.green_robe]
+display_name = "white robe"
+item_description = """A linen robe as white as marble. It's plain, with few details, but you can feel the quality of the fabric when you glide your hand over the robe.
+Being stylish isn't the only property of this piece of clothing, it's also well ventilated, and provides some cover from the suns rays"""
+container = false
+traits = ["beautiful"]
+[items.green_robe.stats]
+damage_reduction = 10

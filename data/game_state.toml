@@ -1,0 +1,20 @@
+###___game state___###
+
+[game_state] 
+
+#World
+current_room = "start"
+visited_rooms = []
+
+# Player
+hunger = 100
+hunger_effects = []
+physical_condition = 100
+walking_speed = 100
+
+inventory = [""]
+
+# System
+time = ["hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour"]
+output_history = []
+

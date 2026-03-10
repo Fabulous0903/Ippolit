@@ -1,0 +1,307 @@
+###___Rooms___###
+
+#[rooms.placeholder]
+
+#display_name = "display name if needed"
+#bg_image = "placeholder.png"
+#music = "placeholder.ogg"
+
+#on_enter_first_day = "text that shows when you enter a room for the first time during the day"
+#on_enter_first_sunset = "text that shows when you enter a room for the first time during sunset"
+#on_enter_first_night = "text that shows when you enter a room for the first time during the night"
+#on_enter_first_sunrise = "text that shows when you enter a room for the first time druing sunrise"
+
+#on_enter_day = "text that shows when you enter the room during the day"
+#on_enter_sunset = "text that shows when you enter the room during sunset"
+#on_enter_night = "text that shows when you enter the room during the night"
+#on_enter_sunrise = "text that shows when you enter the room during sunrise""A stream of light comes from outside. Traveling now would be stupid, you should wait for sunset.
+
+#on_look = "what shows when player looks around."
+#on_smell = ""
+#on_listen = ""
+#on_feel = ""
+
+#actions = "actions that are possible in room"
+#current_room_items = ["items that are in room"]
+#instant_room_items = [""] items of room instantly enter inventory
+#time_tag = "none, quick, medium, or long"
+#type_of_room = "open or confined. A confined room is either a room within an open room, or another confined room. Time passes slower when traveling in confined rooms "
+
+#[rooms.placeholder.exits]
+#north = "open: new room"
+#south = "open: new room"
+#west = "open: new room"
+#east = "closed: text that shows this way is closed"
+#enter = "closed/open: new room if open, this room is a room within this room."
+
+###___Start_rooms___###
+
+[rooms.start]
+
+display_name = "The abyss"
+bg_image = "placeholder.png"
+music = "placeholder.ogg"
+
+on_enter_first_sunset = """You try to look, you try to smell, you try to listen, and you try to feel, but nothing happens. \
+Your attempts to reach out to your surroundings are futile, for you have no body. Only your conciousness exists in this void, \
+a place that is devoid of all sensation.
+
+Vague images of ways out drips into your mind, and a sense of direction emerges. When facing north, the collage of vague images transform into something more concrete. \
+You see the images of a person who is preaching with conviction to a mass of people. They are trying to convinve them of his unconventional and idealistic ideas. 
+
+Turning east you see a small room crammed with books stacked all the way up to the ceiling. \
+In the centre of the room a person sits at a cluttered oak desk, deeply invested in reading. \
+A single desk lamp shines a sickly yellow light on the only clear surface of the desk, an area that is just big enough to fit their book.
+
+In the west you see the image of finished battle. A windswept plain of tall grass that sinks into the horizon, strewn with the countless bodies and colorful banners of dead soldiers. \
+In the center of the frame you see a single person standing. With their bloody sword pointed down at the ground in exhaustion, they look at the sea of death surrounding them.
+
+lastly, in the south you see the image of a person all alone in a hospital bed. It seems that they arent far from death, and they have an expression of contemplation on their gaunt face. \
+On the bedside table sits a petty bouquet of withered flowers, acompanied by a company card. Aside from the flowers, the sterile hospital room is empty.
+
+You have a strong feeling that the direction you choose to go, will affect the experience that awaits you. \
+If the anxiety of making a choice is too much, the option of inaction is always present..."""
+
+on_look = "There is no light"
+on_smell = "There is no smell"
+on_listen = "There is no sound"
+on_feel = "There is no touch"
+
+actions = "actions that are possible in room"
+current_room_items = [""]
+instant_room_items = [""]
+time_tag = "none"
+type_of_room = "confined"
+
+[rooms.start.exits]
+north = "open: start_idealistic"
+south = "open: start_miserable"
+west = "open: start_violent"
+east = "open: start_curious"
+enter = "open: the_hole"
+
+[rooms.start_curious]
+
+display_name = "The abyss"
+bg_image = "placeholder.png"
+music = "placeholder.ogg"
+
+on_enter_first_sunset = "text that shows when you enter a room for the first time during the day"
+
+on_look = "There is no light"
+on_smell = "There is no smell"
+on_listen = "There is no sound"
+on_feel = "There is no touch"
+
+actions = "actions that are possible in room"
+current_room_items = [""]
+instant_room_items = [""]
+time_tag = "none"
+type_of_room = "confined"
+
+[rooms.start_curious.exits]
+north = "closed: text that shows this way is closed"
+south = "closed: text that shows this way is closed"
+west = "closed: text that shows this way is closed"
+east = "closed: text that shows this way is closed"
+enter = "closed: new room if open, this room is a room within this room."
+
+[rooms.start_violent]
+
+display_name = "The abyss"
+bg_image = "placeholder.png"
+music = "placeholder.ogg"
+
+on_enter_first_sunset = "text that shows when you enter a room for the first time during the day"
+
+on_look = "There is no light"
+on_smell = "There is no smell"
+on_listen = "There is no sound"
+on_feel = "There is no touch"
+
+actions = "actions that are possible in room"
+current_room_items = [""]
+instant_room_items = [""]
+time_tag = "none"
+type_of_room = "confined"
+
+[rooms.start_violent.exits]
+north = "closed: text that shows this way is closed"
+south = "closed: text that shows this way is closed"
+west = "closed: text that shows this way is closed"
+east = "closed: text that shows this way is closed"
+enter = "closed: new room if open, this room is a room within this room."
+
+[rooms.start_idealistic]
+
+ddisplay_name = "The abyss"
+bg_image = "placeholder.png"
+music = "placeholder.ogg"
+
+on_enter_first_sunset = "text that shows when you enter a room for the first time during the day"
+
+on_look = "There is no light"
+on_smell = "There is no smell"
+on_listen = "There is no sound"
+
+actions = "actions that are possible in room"
+current_room_items = [""]
+instant_room_items = ["kebbie"]
+time_tag = "none"
+type_of_room = "confined"
+
+[rooms.start_idealistic.exits]
+north = "closed: text that shows this way is closed"
+south = "closed: text that shows this way is closed"
+west = "closed: text that shows this way is closed"
+east = "closed: text that shows this way is closed"
+enter = "closed: new room if open, this room is a room within this room."
+
+[rooms.start_miserable]
+
+display_name = "The abyss"
+bg_image = "placeholder.png"
+music = "placeholder.ogg"
+
+on_enter_first_sunset = "text that shows when you enter a room for the first time during the day"
+
+on_look = "There is no light"
+on_smell = "There is no smell"
+on_listen = "There is no sound"
+
+actions = "actions that are possible in room"
+current_room_items = [""]
+time_tag = "none"
+type_of_room = "confined"
+
+[rooms.start_miserable.exits]
+north = "closed: text that shows this way is closed"
+south = "closed: text that shows this way is closed"
+west = "closed: text that shows this way is closed"
+east = "closed: text that shows this way is closed"
+enter = "closed: new room if open, this room is a room within this room."
+
+
+
+
+
+###___Main_rooms___###
+
+[rooms.desert_cave]
+display_name = "desert cave"
+bg_image = "desertcave.png"
+music = "soundsofsand.ogg"
+
+# Text box
+on_enter_first_day = """A beam of light shines from the entrance. You find yourself in a damp limestone cave, leisurely sculpted  by the flow of water.
+Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+In the far corner you see the bones of a creature. Traveling outside now would be unwise, you should wait for sunset."""
+
+on_enter_first_sunset = """Cool air from outside flows through your nostrils and deep into your lungs, marking the setting of the sun. \
+Rubbing your feet together under your blanket, and opening your eyes slightly. You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water. \
+Stalactites and stalagmites clutter the roof and floor of the cave mixing together, giving the cave the semblence of some living thing. \
+Your slender kebbie leans on your satchel on the ground."""
+
+on_enter_first_night = "With your eyes closed, you listen; there is no sound coming from outside."
+
+on_enter_first_sunrise = """A sliver of light shines from the entrance. You find yourself in a damp limestone cave, leisurely sculpted  by the flow of water.
+Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+In the far corner you see the bones of a creature. Traveling outside now would be unwise, you should wait for sunset."""
+
+on_enter_day = """A beam of light shines from the entrance. You find yourself in a damp limestone cave, leisurely sculpted  by the flow of water.
+Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+In the far corner you see the bones of a creature. Traveling outside now would be unwise, you should wait for sunset."""
+
+on_enter_sunset = """You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water.
+Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+In the far corner, were the light of your torch barely touches, you can make out the faintest form of the bones of a creature."""
+
+on_enter_night = """You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water.
+Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+In the far corner, were the light of your torch barely touches, you can make out the faintest form of a creature's bones"""
+
+on_enter_sunrise = """You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water.
+Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+In the far corner, were the light of your torch barely touches, you can make out the faintest form of the bones of a creature."""
+
+on_look = """Solid walls of stone surround you, their mass sheltering you from the suffering outside.
+The cave splits off and goes deeper, but the tunnels seemes too small for a human, and you have no reason to go spelunking. Your long kebbie leans on your
+leather satchel besides you on the ground"""
+
+# Properties of room
+actions = "pick_up"
+current_room_items = ["satchel","kebbie"]
+time_tag = "none"
+type_of_room = "confined"
+
+[rooms.desert_cave.exits]
+north = "open: desert_cave_entrance"
+south = """closed: You see passages that goes deeper into the .
+There is an opening that is larger than the others, almost exactly the size of your body. You bring the torch closer, but the darkness seems neverending,
+and the light reveals nothing more than even more darkness. All you hear is the crackling of your torch,
+untill you swear that you can hear a faint drumming coming from the abyss...
+You tell yourself that your ears must be decieving you, and decide that there is nothing for you down in the darkness."""
+west = "closed: A wall of jagged rock blocks your way"
+east = "closed: A wall of jagged rock blocks your way"
+
+[rooms.desert_cave_entrance]
+
+display_name = "desert cave entrance"
+bg_image = "desertcaveentrance.png"
+music = "soundsofsand.ogg"
+
+on_enter_first_day = """Waves of heat wash over you as you near the exit, at the tunnel's end exists sits the crimson sun.  """
+on_enter_first_sunset = "text that shows when you enter a room for the first time during sunset"
+on_enter_first_night = "text that shows when you enter a room for the first time during the night"
+on_enter_first_sunrise = "text that shows when you enter a room for the first time druing sunrise"
+
+on_enter_day = "text that shows when you enter the room during the day"
+on_enter_sunset = "text that shows when you enter the room during sunset"
+on_enter_night = "text that shows when you enter the room during the night"
+on_enter_sunrise = "text that shows when you enter the room during sunrise"
+on_look = "what shows when player looks around."
+
+actions = "actions that are possible in room"
+current_room_items = ["items that are in room"]
+time_tag = "quick, medium, or long"
+type_of_room = "open or confined. A confined room is either a room within an open room, or another confined room. Time passes slower when traveling in confined rooms "
+
+[rooms.desert_cave_entrance.exits]
+north = "open: rocky_desert_0_1"
+south = "open: desert_cave"
+west = "closed: Cave wall"
+east = "closed: Cave wall"
+
+[rooms.rocky_desert_0_1]
+
+display_name = "rocky desert"
+bg_image = "rocky_desert_0_1.png"
+music = "rocky_desert_0_1.ogg"
+
+on_enter_first_day = """The emotionless sun bathes the hamada in it's ray's of eradication,
+shining upon an ocean of gravel that stretches on as far as your eyes allow you to see.
+It has scorched away all that used to live here, and You wil meet the same fate if You continue to stay out during the day,
+your bones joining the perpetual sea of indiference."""
+on_enter_first_sunset = """A vast hamada, only gravel as far you can see."""
+on_enter_first_night = """A vast hamada, only gravel as far you can see."""
+on_enter_first_sunrise = """A vast hamada, only gravel as far you can see."""
+
+on_enter_day = """The emotionless sun bathes the hamada in it's ray's of eradication, shining upon an ocean of gravel that stretches on as far your eyes allow you to see.
+It has scorched away all that used to live here, and you wil meet the same fate if you continue to stay out during the day,
+your bones joining the perpetual sea of indiference."""
+on_enter_sunset = "text that shows when you enter the room during sunset"
+on_enter_night = "text that shows when you enter the room during the night"
+on_enter_sunrise = "text that shows when you enter the room during sunrise"
+
+on_look = "what shows when player looks around."
+
+actions = "actions that are possible in room"
+current_room_items = ["items that are in room"]
+time_tag = "quick"
+
+[rooms.rocky_desert_0_1.exits]
+north = "open: new room"
+south = "open: desert_cave_entrance"
+west = "closed: text that shows this way is closed"
+east = "closed: text that shows this way is closed"
+enter = "closed/open: new room if open, this room is a room within this room."
