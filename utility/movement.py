@@ -1,4 +1,5 @@
 import utility.clock as time
+import utility.item_management as item_management
 
 
 def check_time_for_room(
@@ -46,12 +47,15 @@ def enter_room(
     room_name: str,
     game_state: dict[str, str | int | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]] 
 ) -> None:
     game_state["current_room"] = room_name
     room = rooms[room_name]
+    instant_room_contents = room.get("instant_room_items", [])
 
     time.pass_time_room(game_state, room_name, rooms)
     check_time_for_room(room_name, game_state, rooms)
+    item_management.pick_up_instant(game_state, rooms, items)
 
     return
 
@@ -73,6 +77,7 @@ def enter_room_text(
 def movement_north(
     game_state: dict[str, str | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]] 
 ) -> None:
     room_key = game_state["current_room"]
     room = rooms[room_key]
@@ -84,7 +89,7 @@ def movement_north(
     if text_before == "open":
         game_state["current_room"] = text_after
         room_name = game_state["current_room"]
-        enter_room(room_name, game_state, rooms)
+        enter_room(room_name, game_state, rooms, items)
 
     elif text_before == "closed":
         game_state["output_history"].append(text_after)
@@ -94,6 +99,7 @@ def movement_north(
 def movement_south(
     game_state: dict[str, str | int | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]] 
 ) -> None:
     room_key = game_state["current_room"]
     room = rooms[room_key]
@@ -105,7 +111,7 @@ def movement_south(
     if text_before == "open":
         game_state["current_room"] = text_after
         room_name = game_state["current_room"]
-        enter_room(room_name, game_state, rooms)
+        enter_room(room_name, game_state, rooms, items)
 
     elif text_before == "closed":
         game_state["output_history"].append(text_after)
@@ -115,6 +121,7 @@ def movement_south(
 def movement_west(
     game_state: dict[str, str | int | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]] 
 ) -> None:
     room_key = game_state["current_room"]
     room = rooms[room_key]
@@ -126,7 +133,7 @@ def movement_west(
     if text_before == "open":
         game_state["current_room"] = text_after
         room_name = game_state["current_room"]
-        enter_room(room_name, game_state, rooms)
+        enter_room(room_name, game_state, rooms, items)
 
     elif text_before == "closed":
         game_state["output_history"].append(text_after)
@@ -136,6 +143,7 @@ def movement_west(
 def movement_east(
     game_state: dict[str, str | int | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]] 
 ) -> None:
     room_key = game_state["current_room"]
     room = rooms[room_key]
@@ -147,7 +155,7 @@ def movement_east(
     if text_before == "open":
         game_state["current_room"] = text_after
         room_name = game_state["current_room"]
-        enter_room(room_name, game_state)
+        enter_room(room_name, game_state, rooms, items)
 
     elif text_before == "closed":
         game_state["output_history"].append(text_after)

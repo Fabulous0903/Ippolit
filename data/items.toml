@@ -24,15 +24,49 @@ item_description = """A hefty stick made for walking. It's tall and slender, alm
 with a shepards hook at the end, and with a red cloth twined around where you would place your hand.
 You contemplate it's straightness, it's as though nature destined it for a life of walking."""
 container = false
-traits = ["long", "stick"]
+traits = ["long", "stick", "weapon_slot"]
 [items.kebbie.stats]
 physical_damage = 10
 
 [items.green_robe]
 display_name = "white robe"
-item_description = """A linen robe as white as marble. It's plain, with few details, but you can feel the quality of the fabric when you glide your hand over the robe.
+item_description = """A linen robe as white as marble. It's plain, with few details, but you can feel the quality of the fabric when you glide your hand across the robe.
 Being stylish isn't the only property of this piece of clothing, it's also well ventilated, and provides some cover from the suns rays"""
 container = false
-traits = ["beautiful"]
+traits = ["beautiful", "upper_body_slot"]
 [items.green_robe.stats]
 damage_reduction = 10
+
+[item.glasses]
+display_name = "glasses"
+item_description = """Pair of black glasses, round in shape. Wearing them makes things in the distance less blurry."""
+container = false
+traits = ["prescription_glasses", "magnify", "intelligent", "head_gear_slot"] 
+[items.glasses.stats]
+physical_damage = 0
+accuracy = 0
+damage_reduction = 0
+ventilation = 0
+
+[item.book_on_status_effects]
+display_name = "Camping in the jungle; a beginners guide."
+item_description = """ "camping in the jungle; a beginners guide.", a book on camping in high humidity terrain. You open it to a random page;
+"""
+container = false
+traits = ["book", "flamable"] 
+[items.book_on_status_effects.stats]
+physical_damage = 0
+accuracy = 0
+damage_reduction = 0
+ventilation = 0
+
+[item.book_on_solar_storms]
+display_name = "The solar storms of the 22nd century"
+item_description = """ "The solar storms of the 22nd century" by Feynman McPherron."""
+container = false
+traits = ["book", "flamable"] 
+[items.book_on_solar_storms.stats]
+physical_damage = 0
+accuracy = 0
+damage_reduction = 0
+ventilation = 0

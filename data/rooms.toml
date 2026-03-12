@@ -23,7 +23,7 @@
 
 #actions = "actions that are possible in room"
 #current_room_items = ["items that are in room"]
-#instant_room_items = [""] items of room instantly enter inventory
+#instant_room_items = [] items of room instantly enter inventory
 #time_tag = "none, quick, medium, or long"
 #type_of_room = "open or confined. A confined room is either a room within an open room, or another confined room. Time passes slower when traveling in confined rooms "
 
@@ -47,20 +47,20 @@ Your attempts to reach out to your surroundings are futile, for you have no body
 a place that is devoid of all sensation.
 
 Vague images of ways out drips into your mind, and a sense of direction emerges. When facing north, the collage of vague images transform into something more concrete. \
-You see the images of a person who is preaching with conviction to a mass of people. They are trying to convinve them of his unconventional and idealistic ideas. 
+You see the images of a person who is preaching with conviction to a mass of people. They're trying to convinve the group of their idealistic ideas. 
 
 Turning east you see a small room crammed with books stacked all the way up to the ceiling. \
-In the centre of the room a person sits at a cluttered oak desk, deeply invested in reading. \
+In the centre of the room a person sits at a cluttered wooden desk, deeply invested in reading. \
 A single desk lamp shines a sickly yellow light on the only clear surface of the desk, an area that is just big enough to fit their book.
 
 In the west you see the image of finished battle. A windswept plain of tall grass that sinks into the horizon, strewn with the countless bodies and colorful banners of dead soldiers. \
 In the center of the frame you see a single person standing. With their bloody sword pointed down at the ground in exhaustion, they look at the sea of death surrounding them.
 
-lastly, in the south you see the image of a person all alone in a hospital bed. It seems that they arent far from death, and they have an expression of contemplation on their gaunt face. \
-On the bedside table sits a petty bouquet of withered flowers, acompanied by a company card. Aside from the flowers, the sterile hospital room is empty.
+Lastly, in the south you see the image of a person all alone in a hospital bed. It seems that they arent far from death, and they have an expression of contemplation on their gaunt face. \
+On the bedside table sits a petty bouquet of withered flowers. Aside from the flowers, the sterile hospital room is completely empty.
 
-You have a strong feeling that the direction you choose to go, will affect the experience that awaits you. \
-If the anxiety of making a choice is too much, the option of inaction is always present..."""
+You have a strong feeling that the direction you choose to go will affect the experience that awaits you. \
+If the anxiety of making a choice is too much, the option of doing nothing is always present..."""
 
 on_look = "There is no light"
 on_smell = "There is no smell"
@@ -68,9 +68,8 @@ on_listen = "There is no sound"
 on_feel = "There is no touch"
 
 actions = "actions that are possible in room"
-current_room_items = [""]
-instant_room_items = [""]
-time_tag = "none"
+current_room_items = []
+time_tag = "none"   
 type_of_room = "confined"
 
 [rooms.start.exits]
@@ -86,7 +85,9 @@ display_name = "The abyss"
 bg_image = "placeholder.png"
 music = "placeholder.ogg"
 
-on_enter_first_sunset = "text that shows when you enter a room for the first time during the day"
+on_enter_first_sunset = """You focus intensively on the image of the person hunched over the book. Their curtiosity greatly interests you. \
+In the center of the image something is emerging, a green hue is beginning to envelope the image. You can stay here in the nothingness, or you can go east, \
+and immerse yourself in the green hue."""
 
 on_look = "There is no light"
 on_smell = "There is no smell"
@@ -94,16 +95,16 @@ on_listen = "There is no sound"
 on_feel = "There is no touch"
 
 actions = "actions that are possible in room"
-current_room_items = [""]
-instant_room_items = [""]
+current_room_items = []
+instant_room_items = ["glasses", "book_on_status_effects", "book_on_solar_storms"]
 time_tag = "none"
 type_of_room = "confined"
 
 [rooms.start_curious.exits]
-north = "closed: text that shows this way is closed"
-south = "closed: text that shows this way is closed"
-west = "closed: text that shows this way is closed"
-east = "closed: text that shows this way is closed"
+north = "closed: You cant go back"
+south = "closed: You cant go back"
+west = "closed: You cant go back"
+east = "openj desert_cave"
 enter = "closed: new room if open, this room is a room within this room."
 
 [rooms.start_violent]
@@ -120,8 +121,8 @@ on_listen = "There is no sound"
 on_feel = "There is no touch"
 
 actions = "actions that are possible in room"
-current_room_items = [""]
-instant_room_items = [""]
+current_room_items = []
+instant_room_items = ["kebbie"]
 time_tag = "none"
 type_of_room = "confined"
 
@@ -134,7 +135,7 @@ enter = "closed: new room if open, this room is a room within this room."
 
 [rooms.start_idealistic]
 
-ddisplay_name = "The abyss"
+display_name = "The abyss"
 bg_image = "placeholder.png"
 music = "placeholder.ogg"
 
@@ -145,7 +146,7 @@ on_smell = "There is no smell"
 on_listen = "There is no sound"
 
 actions = "actions that are possible in room"
-current_room_items = [""]
+current_room_items = []
 instant_room_items = ["kebbie"]
 time_tag = "none"
 type_of_room = "confined"
@@ -170,7 +171,7 @@ on_smell = "There is no smell"
 on_listen = "There is no sound"
 
 actions = "actions that are possible in room"
-current_room_items = [""]
+current_room_items = []
 time_tag = "none"
 type_of_room = "confined"
 

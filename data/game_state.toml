@@ -12,7 +12,7 @@ hunger_effects = []
 physical_condition = 100
 walking_speed = 100
 
-inventory = [""]
+inventory = []
 
 # System
 time = ["hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour"]

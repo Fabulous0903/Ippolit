@@ -165,7 +165,7 @@ def look_inside_container(
 
 
 # Function for checking inventory
-def check_inventory(game_state: dict[str, str | int | list[str]]) -> None:
+def check_inventory(game_state: dict[str, str | int | list[str]], items) -> None:
     if not game_state["inventory"]:
         game_state["output_history"].append("your pockets are empty.")
         return
@@ -193,21 +193,23 @@ def examine_item(
 def pick_up_instant(
     game_state: dict[str, str | int | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
-    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]],
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]]
 ) -> None:
-    game_state["current_room"] = room_name
+    room_name = game_state["current_room"]
     room = rooms[room_name]
     instant_room_contents = room.get("instant_room_items", [])
+    earlier_room_contents = []
 
-    if "instant_room_items" not in room:
+    if not "instant_room_items":
         return
     else:
-        for item_key in room[:]:
-            room.remove(room_items)
+        for item_key in instant_room_contents[:]:
+            instant_room_contents.remove(item_key)
             game_state["inventory"].append(item_key)
             item_name = items[item_key]["display_name"]
             earlier_room_contents.append(item_name)
 
-            game_state["output_history"].append(
-                "You get " + ", ".join(earlier_room_contents)
-            )
+    if earlier_room_contents:
+        game_state["output_history"].append(
+            "You get " + ", ".join(earlier_room_contents)
+        )

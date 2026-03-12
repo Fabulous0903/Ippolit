@@ -50,7 +50,7 @@ active_input = False
 active_output = False
 
 # Caller viktige funksjoner
-movement.enter_room(game_state["current_room"], game_state, rooms)
+movement.enter_room(game_state["current_room"], game_state, rooms, items)
 
 ### Game loop
 is_running = True

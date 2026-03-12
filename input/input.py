@@ -1,7 +1,7 @@
 import pygame as pg
 import sys
 
-import utility.item_management as item_managment
+import utility.item_management as item_management
 import utility.movement as movement
 import utility.pass_time as pass_time
 
@@ -70,30 +70,30 @@ def handle_command(
                 )
                 return
             item_key = "_".join(item_key_segments)
-            item_managment.pick_up_items(item_key, room, game_state, items)
+            item_management.pick_up_items(item_key, room, game_state, items)
 
         case ["look"]:
             game_state["output_history"].append("Look at what?")
 
         case ["look", "inside", *container_key_segments]:
             container_key = "_".join(container_key_segments)
-            item_managment.look_inside_container(container_key, game_state, items)
+            item_management.look_inside_container(container_key, game_state, items)
 
         case ["check", "inventory"]:
-            item_managment.check_inventory(game_state)
+            item_management.check_inventory(game_state, items)
         case ["inventory"]:
-            item_managment.check_inventory(game_state)
+            item_management.check_inventory(game_state, items)
         case ["check", "pockets"]:
-            item_managment.check_inventory(game_state)
+            item_management.check_inventory(game_state, items)
         case ["pockets"]:
-            item_managment.check_inventory(game_state)
+            item_management.check_inventory(game_state, items)
 
         case ["empty", *container_key_segments]:
             container_key = "_".join(container_key_segments)
             container = items[container_key]
             contents = container.get("contents", [])
             for item_key in contents[:]:
-                item_managment.empty_container(
+                item_management.empty_container(
                     item_key, container_key, game_state, items
                 )
 
@@ -101,7 +101,7 @@ def handle_command(
             if not item_key_segments:
                 game_state["output_history"].append("what are you looking for?")
             item_key = "_".join(item_key_segments)
-            item_managment.examine_item(item_key, game_state, items)
+            item_management.examine_item(item_key, game_state, items)
 
         # For passing time
         case ["sleep"]:
@@ -117,24 +117,24 @@ def handle_command(
 
         # For movement
         case ["go", "north"]:
-            movement.movement_north(game_state, rooms)
+            movement.movement_north(game_state, rooms, items)
         case ["north"]:
-            movement.movement_north(game_state, rooms)
+            movement.movement_north(game_state, rooms, items)
 
         case ["go", "south"]:
-            movement.movement_south(game_state, rooms)
+            movement.movement_south(game_state, rooms, items)
         case ["south"]:
-            movement.movement_south(game_state, rooms)
+            movement.movement_south(game_state, rooms, items)
 
         case ["go", "west"]:
-            movement.movement_west(game_state, rooms)
+            movement.movement_west(game_state, rooms, items)
         case ["west"]:
-            movement.movement_west(game_state, rooms)
+            movement.movement_west(game_state, rooms, items)
 
         case ["go", "east"]:
-            movement.movement_east(game_state, rooms)
+            movement.movement_east(game_state, rooms, items)
         case ["east"]:
-            movement.movement_east(game_state, rooms)
+            movement.movement_east(game_state, rooms, items)
 
         case ["help"]:
             game_state["output_history"].append(
