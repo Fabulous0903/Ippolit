@@ -53,7 +53,7 @@ MAX_VISIBLE_LINES = 40
 def update_output(game_state: dict[str, str | int | list[str]], screen_width) -> None:
     global visible_lines, output_height, max_text_width
 
-    max_text_width = screen_width - 400
+    max_text_width = screen_width - 600
     output_lines = ["-" * 100]
 
     for paragraph in game_state["output_history"]:
@@ -97,8 +97,8 @@ def update_physical_dondition_bar(game_state: dict[str, str | int | list[str]]):
     physical_condition = game_state["physical_condition"]
     physical_condition_bar = "Physical condition: " + str(physical_condition)
 
-    physical_condition_rect.x = output_rect.right + PADDING
-    physical_condition_rect.y = 20
+    physical_condition_rect.x = input_rect.right + 15
+    physical_condition_rect.y = output_rect.bottom + 15
     physical_condition_rect.w = 270
     physical_condition_rect.h = PADDING * 2 + LINE_HEIGHT
 
@@ -108,8 +108,8 @@ def update_hunger_bar(game_state: dict[str, str | int | list[str]]):
     hunger = game_state["hunger"]
     hunger_bar = "Hunger: " + str(hunger)
 
-    hunger_rect.x = output_rect.right + PADDING
-    hunger_rect.y = physical_condition_rect.bottom + PADDING
+    hunger_rect.x = physical_condition_rect.right + 15
+    hunger_rect.y = output_rect.bottom + 15
     hunger_rect.w = 140
     hunger_rect.h = PADDING * 2 + LINE_HEIGHT
 
@@ -117,11 +117,17 @@ def update_hunger_bar(game_state: dict[str, str | int | list[str]]):
 
 def update_inventory_box(game_state: dict[str, str | int | list[str]], items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]]):
     inventory = game_state["inventory"]
-    inventory_box = "Your stuff: " + "\n".join(items[item]["display_name"] for item in inventory)
-    inventory_box_lines = inventory_box.split("\n")
+
+    inventory = "Your stuff: " + "\n- " + "\n- ".join(items[item]["display_name"] for item in inventory)
+    inventory_box = inventory_box.split("\n")
+
+    for lines in inventory_box:
+        wrapped = wrap_text(lines, base_font, max_text_width)
+        inventory_box_lines.extend(wrapped)
+
 
     inventory_rect.x = output_rect.right + PADDING
-    inventory_rect.y = hunger_rect.bottom + PADDING
+    inventory_rect.y = 20
     inventory_rect.w = 270
     inventory_rect.h = PADDING * 2 + LINE_HEIGHT
 

@@ -142,13 +142,15 @@ while is_running:
 
     # Draws inventory box
     pg.draw.rect(screen, text.color_input, text.inventory_rect)
+    y_offset_inventory = text.inventory_rect.y + text.PADDING
 
     for line in inventory_box_lines:
-        text_surface = text.base_font.render(inventory_box_lines, True, (196, 69, 54))
+        text_surface = text.base_font.render(line, True, (196, 69, 54))  # 'line', not 'inventory_box_lines'
         screen.blit(
             text_surface,
-            (text.inventory_rect.x + text.PADDING, text.inventory_rect.y + text.PADDING),
+            (text.inventory_rect.x + text.PADDING, y_offset_inventory),
         )
+        y_offset_inventory += text.LINE_HEIGHT
 
     # Updates the display
     pg.display.flip()
