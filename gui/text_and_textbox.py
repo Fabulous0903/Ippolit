@@ -18,7 +18,6 @@ color_output = color_passive_output
 
 user_text = ""
 
-
 # For wrapping text
 def wrap_text(text, font, max_width):
     words = text.split(" ")
@@ -43,6 +42,7 @@ input_rect = pg.Rect(10, 10, 140, 32)
 output_rect = pg.Rect(10, 100, 140, 32)
 hunger_rect = pg.Rect(10, 100, 140, 32)
 physical_condition_rect = pg.Rect(10, 100, 140, 32)
+inventory_rect = pg.Rect(10, 100, 140, 32)
 
 PADDING = 10
 LINE_HEIGHT = base_font.get_height()
@@ -53,7 +53,7 @@ MAX_VISIBLE_LINES = 40
 def update_output(game_state: dict[str, str | int | list[str]], screen_width) -> None:
     global visible_lines, output_height, max_text_width
 
-    max_text_width = screen_width - PADDING * 4
+    max_text_width = screen_width - 400
     output_lines = ["-" * 100]
 
     for paragraph in game_state["output_history"]:
@@ -74,7 +74,7 @@ def update_output(game_state: dict[str, str | int | list[str]], screen_width) ->
 
     output_rect.x = 20
     output_rect.y = 20
-    output_rect.w = max_text_width
+    output_rect.w = max_text_width + PADDING * 2
     output_rect.h = output_height
 
 
@@ -82,34 +82,46 @@ def update_output(game_state: dict[str, str | int | list[str]], screen_width) ->
 def update_input(user_text):
     input_lines = wrap_text(user_text, base_font, max_text_width)
     input_height = PADDING * 2 + LINE_HEIGHT
+    character_width, character_height = base_font.size("A")
+
+    input_width_addition = character_width * len(user_text)
 
     input_rect.x = 20
-    input_rect.y = output_rect.bottom + 15
-    input_rect.w = 250
+    input_rect.y = output_rect.bottom + PADDING
+    input_rect.w = input_width_addition + PADDING * 2
     input_rect.h = input_height
 
     return input_lines
-
-
-def update_hunger_bar(game_state: dict[str, str | int | list[str]]):
-    hunger = game_state["hunger"]
-    hunger_bar = "Hunger: " + str(hunger)
-
-    hunger_rect.x = physical_condition_rect.right + 15
-    hunger_rect.y = output_rect.bottom + 15
-    hunger_rect.w = 140
-    hunger_rect.h = PADDING * 2 + LINE_HEIGHT
-
-    return hunger_bar
-
 
 def update_physical_dondition_bar(game_state: dict[str, str | int | list[str]]):
     physical_condition = game_state["physical_condition"]
     physical_condition_bar = "Physical condition: " + str(physical_condition)
 
-    physical_condition_rect.x = input_rect.right + 15
-    physical_condition_rect.y = output_rect.bottom + 15
+    physical_condition_rect.x = output_rect.right + PADDING
+    physical_condition_rect.y = 20
     physical_condition_rect.w = 270
     physical_condition_rect.h = PADDING * 2 + LINE_HEIGHT
 
     return physical_condition_bar
+
+def update_hunger_bar(game_state: dict[str, str | int | list[str]]):
+    hunger = game_state["hunger"]
+    hunger_bar = "Hunger: " + str(hunger)
+
+    hunger_rect.x = output_rect.right + PADDING
+    hunger_rect.y = physical_condition_rect.bottom + PADDING
+    hunger_rect.w = 140
+    hunger_rect.h = PADDING * 2 + LINE_HEIGHT
+
+    return hunger_bar
+
+def update_inventory_box(game_state: dict[str, str | int | list[str]]):
+    inventory = game_state["inventory"]
+    inventory_box = "Your stuff: " + str(inventory)
+
+    inventory_rect.x = output_rect.right + PADDING
+    inventory_rect.y = hunger_rect.bottom + PADDING
+    inventory_rect.w = 270
+    inventory_rect.h = PADDING * 2 + LINE_HEIGHT
+
+    return inventory_box

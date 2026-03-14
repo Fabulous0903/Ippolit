@@ -86,7 +86,7 @@ bg_image = "placeholder.png"
 music = "placeholder.ogg"
 
 on_enter_first_sunset = """You focus intensively on the image of the person hunched over the book. Their curtiosity greatly interests you. \
-In the center of the image something is emerging, a green hue is beginning to envelope the image. You can stay here in the nothingness, or you can go east, \
+In the center of the image something is emerging, a green hue is beginning to envelope the scene. You can stay here in the nothingness, or you can go east, \
 and immerse yourself in the green hue."""
 
 on_look = "There is no light"
@@ -104,16 +104,17 @@ type_of_room = "confined"
 north = "closed: You cant go back"
 south = "closed: You cant go back"
 west = "closed: You cant go back"
-east = "openj desert_cave"
+east = "open: desert_cave"
 enter = "closed: new room if open, this room is a room within this room."
 
 [rooms.start_violent]
-
 display_name = "The abyss"
 bg_image = "placeholder.png"
 music = "placeholder.ogg"
 
-on_enter_first_sunset = "text that shows when you enter a room for the first time during the day"
+on_enter_first_sunset = """You focus intensively on the image of the person surrounded by destruction. The violence of the scene greatly interests you. \
+In the center of the image something is emerging, a green hue is enveloping it. You can stay here in the nothingness, or you can go west, \
+and immerse yourself in the green hue."""
 
 on_look = "There is no light"
 on_smell = "There is no smell"
@@ -122,19 +123,18 @@ on_feel = "There is no touch"
 
 actions = "actions that are possible in room"
 current_room_items = []
-instant_room_items = ["kebbie"]
+instant_room_items = ["hunting_knife", "six_shooter", "44_round", "44_round", "44_round"] 
 time_tag = "none"
 type_of_room = "confined"
 
 [rooms.start_violent.exits]
-north = "closed: text that shows this way is closed"
-south = "closed: text that shows this way is closed"
-west = "closed: text that shows this way is closed"
-east = "closed: text that shows this way is closed"
+north = "closed: You cant go back"
+south = "closed: You cant go back"
+west = "open: desert_cave"
+east = "closed: closed: You cant go back"
 enter = "closed: new room if open, this room is a room within this room."
 
 [rooms.start_idealistic]
-
 display_name = "The abyss"
 bg_image = "placeholder.png"
 music = "placeholder.ogg"
@@ -159,7 +159,6 @@ east = "closed: text that shows this way is closed"
 enter = "closed: new room if open, this room is a room within this room."
 
 [rooms.start_miserable]
-
 display_name = "The abyss"
 bg_image = "placeholder.png"
 music = "placeholder.ogg"
@@ -199,9 +198,9 @@ Stalactites and stalagmites clutter the roof and floor of the cave, making the p
 In the far corner you see the bones of a creature. Traveling outside now would be unwise, you should wait for sunset."""
 
 on_enter_first_sunset = """Cool air from outside flows through your nostrils and deep into your lungs, marking the setting of the sun. \
-Rubbing your feet together under your blanket, and opening your eyes slightly. You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water. \
+Rubbing your feet together under your blanket, and opening your eyes slightly, you find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water. \
 Stalactites and stalagmites clutter the roof and floor of the cave mixing together, giving the cave the semblence of some living thing. \
-Your slender kebbie leans on your satchel on the ground."""
+Your staff leans on your satchel on the ground."""
 
 on_enter_first_night = "With your eyes closed, you listen; there is no sound coming from outside."
 
@@ -231,23 +230,22 @@ leather satchel besides you on the ground"""
 
 # Properties of room
 actions = "pick_up"
-current_room_items = ["satchel","kebbie"]
+current_room_items = ["satchel","staff"]
 time_tag = "none"
 type_of_room = "confined"
 
 [rooms.desert_cave.exits]
 north = "open: desert_cave_entrance"
-south = """closed: You see passages that goes deeper into the .
-There is an opening that is larger than the others, almost exactly the size of your body. You bring the torch closer, but the darkness seems neverending,
-and the light reveals nothing more than even more darkness. All you hear is the crackling of your torch,
-untill you swear that you can hear a faint drumming coming from the abyss...
-You tell yourself that your ears must be decieving you, and decide that there is nothing for you down in the darkness."""
+south = """closed: You see passages that goes deeper into the . \
+There is an opening that is larger than the others, almost exactly the size of your body. You bring the torch closer, but the darkness seems neverending, \
+and the light reveals nothing more than even more darkness. All you hear is the crackling of your torch, \
+untill you swear that you can hear a faint drumming coming from the abyss... \
+You tell yourself that your ears must be decieving you, and decide that there is nothing for you down in the darkness.uu"""
 west = "closed: A wall of jagged rock blocks your way"
 east = "closed: A wall of jagged rock blocks your way"
 
 [rooms.desert_cave_entrance]
-
-display_name = "desert cave entrance"
+display_name = "desert cave inventory_boxentrance"
 bg_image = "desertcaveentrance.png"
 music = "soundsofsand.ogg"
 
@@ -274,14 +272,13 @@ west = "closed: Cave wall"
 east = "closed: Cave wall"
 
 [rooms.rocky_desert_0_1]
-
 display_name = "rocky desert"
 bg_image = "rocky_desert_0_1.png"
 music = "rocky_desert_0_1.ogg"
 
-on_enter_first_day = """The emotionless sun bathes the hamada in it's ray's of eradication,
-shining upon an ocean of gravel that stretches on as far as your eyes allow you to see.
-It has scorched away all that used to live here, and You wil meet the same fate if You continue to stay out during the day,
+on_enter_first_day = """The emotionless sun bathes the hamada in it's ray's of eradication, \
+shining upon an ocean of gravel that stretches on as far as your eyes allow you to see. \
+It has scorched away all that used to live here, and You wil meet the same fate if You continue to stay out during the day, \
 your bones joining the perpetual sea of indiference."""
 on_enter_first_sunset = """A vast hamada, only gravel as far you can see."""
 on_enter_first_night = """A vast hamada, only gravel as far you can see."""

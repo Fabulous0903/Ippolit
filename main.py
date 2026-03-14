@@ -38,6 +38,7 @@ game_state = toml_game_state["game_state"]
 
 ### Pygame start
 pg.init()
+pg.key.set_repeat(400, 50)
 pg.font.init()
 clock = pg.time.Clock()
 
@@ -81,6 +82,8 @@ while is_running:
                 user_text += event.unicode
 
     screen.fill((20, 16, 18))
+    #dt = clock.tick(60)
+    #text.tick_output(dt)
 
     # Changes color if mousebutton pressed input box
     if active_input:
@@ -98,6 +101,7 @@ while is_running:
     input_lines = text.update_input(user_text)
     hunger_bar = text.update_hunger_bar(game_state)
     physical_condition_bar = text.update_physical_dondition_bar(game_state)
+    inventory_box = text.update_inventory_box(game_state)
 
     # Draws output box
     pg.draw.rect(screen, text.color_output, text.output_rect)
@@ -134,6 +138,14 @@ while is_running:
     screen.blit(
         text_surface,
         (text.hunger_rect.x + text.PADDING, text.hunger_rect.y + text.PADDING),
+    )
+
+    # Draws inventory box
+    pg.draw.rect(screen, text.color_input, text.inventory_rect)
+    text_surface = text.base_font.render(inventory_box, True, (196, 69, 54))
+    screen.blit(
+        text_surface,
+        (text.inventory_rect.x + text.PADDING, text.inventory_rect.y + text.PADDING),
     )
 
     # Updates the display

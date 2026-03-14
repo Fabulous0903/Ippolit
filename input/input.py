@@ -55,7 +55,7 @@ def handle_command(
         else:
             container_key = "_".join(after)
             item_key = "_".join(before)
-            item_managment.put_in_container(item_key, container_key, game_state, items)
+            item_management.put_in_container(item_key, container_key, game_state, items)
         return
 
     match words:

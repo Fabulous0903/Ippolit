@@ -12,21 +12,128 @@
 #damage_reduction = 0 - 100
 #ventilation = 0 - 100
 
+#[item.weapon_placeholder]
+#display_name = "name to be displayed in-game"
+#item_description = """description of the item"""
+#container = false/true determines if item can contain other items
+#traits = [enter valid traits] 
+#[items.placeholder.stats]
+#[items.weapon_placeholder.stats]
+#physical_damage = 10
+#range = 100
+#accuracy = 60
+
+#[item.gun_placeholder]
+#display_name = "name to be displayed in-game"
+#item_description = """description of the item"""
+#container = false
+#traits = [enter valid traits] 
+#[items.placeholder.stats]
+#physical_damage = 0 - 100
+#accuracy = 0 - 100
+#max_ammo = int
+#current_ammo = int < max_ammo
+
+#[items.liquid_container_placeholder]
+#display_name = "name to be displayed in-game"
+#item_description = "description"
+#container = true
+#liquid_container = true
+#max_liquid_volume = int in liters
+#liquid_contents = int, amount of liquid in container, cant exceed max_liquid_volume
+#type_of_liquid = "water"
+#contents = ["for solid items"]
+
+#[items.container_placeholder]
+#display_name = "name to be displayed in-game"
+#item_description = "description"
+#container = true
+#liquid_container = false
+#item_limit = maks amount of items in container
+#contents = ["for solid items"]
+
+#[items.food_placeholder]
+#display_name = "name to be displayed in-game"
+#item_description = "description"
+#container = false
+#poisonous = true/false
+#saturation = 1 - 100
+
+###___CONTAINERS___###
+
+[items.water_pouch]
+display_name = "water pouch"
+item_description = "A water pouch made of goatskin, it seems to be able to hold about 3 liters of liquid."
+container = true
+liquid_container = true
+max_liquid_volume = 3
+liquid_contents = 3
+type_of_liquid = "water"
+contents = []
+
 [items.satchel]
 display_name = "satchel"
 item_description = "A brown "
 container = true
-contents = ["kebbie"]
+liquid_container = false
+item_limit = 10
+contents = ["salted_meat", "salted_meat", "salted_meat", "salted_meat", "water_pouch"]
 
-[items.kebbie]
-display_name = "kebbie"
-item_description = """A hefty stick made for walking. It's tall and slender, almost stretching up to your face,
-with a shepards hook at the end, and with a red cloth twined around where you would place your hand.
-You contemplate it's straightness, it's as though nature destined it for a life of walking."""
+###___FOOD___###
+
+[items.salted_meat]
+display_name = "salted meat"
+item_description = "A slice of old salted meat, looks... edible."
 container = false
-traits = ["long", "stick", "weapon_slot"]
+poisonous = false
+saturation = 55
+
+###___WEAPONS___###
+
+[items.staff]
+display_name = "kebbie"
+item_description = """A hefty stick made for walking. It's tall and slender, almost stretching up to your face, \
+with a shepards hook at the end, and with a red cloth twined around where you would place your hand. \
+It is increadibly straight, as though nature destined it for a life of walking."""
+container = false
+traits = ["long", "meele", "weapon_slot"]
 [items.kebbie.stats]
 physical_damage = 10
+range = 100
+accuracy = 60
+
+[items.hunting_knife]
+display_name = "hunting knife"
+item_description = """An enourmous blade, almost as long as your forearm, and with a width the same as the handle. \
+The knife's blade is full tang and goes through the entirety of the polished wood handle, it wont break easily  """
+container = false
+traits = ["sharp", "meele", "weapon_slot"]
+[items.hunting_knife.stats]
+physical_damage = 50
+range = 30
+accuracy = 60
+
+[item.six_shooter]
+display_name = "six-shooter"
+item_description = """Deadly... but maybe not so accurate. The cylinder swings out from the chamber, and can hold upto six bullets."""
+container = false
+traits = ["weapon_slot", "ranged_weapon", "intimidating"] 
+[items.six_shooter.stats]
+physical_damage = 100
+accuracy = 40
+max_ammo = 6
+current_ammo = 0
+
+[item.44_round]
+display_name = ".44 round"
+item_description = """A .44 caliber round."""
+container = false
+traits = ["ammo", ".44"] 
+[items.44_round.stats]
+physical_damage = 100
+accuracy = 10
+
+###___CLOTHING___###
 
 [items.green_robe]
 display_name = "white robe"
@@ -35,9 +142,10 @@ Being stylish isn't the only property of this piece of clothing, it's also well 
 container = false
 traits = ["beautiful", "upper_body_slot"]
 [items.green_robe.stats]
-damage_reduction = 10
+damage_reduction = 0
+ventilation = 0
 
-[item.glasses]
+[items.glasses]
 display_name = "glasses"
 item_description = """Pair of black glasses, round in shape. Wearing them makes things in the distance less blurry."""
 container = false
@@ -48,9 +156,11 @@ accuracy = 0
 damage_reduction = 0
 ventilation = 0
 
-[item.book_on_status_effects]
-display_name = "Camping in the jungle; a beginners guide."
-item_description = """ "camping in the jungle; a beginners guide.", a book on camping in high humidity terrain. You open it to a random page;
+###___BOOKS_AND_SIMILAR_ITEMS___###
+
+[items.book_on_status_effects]
+display_name = "'Camping in the jungle; a beginners guide.'"
+item_description = """ 'Cuamping in the jungle; a beginners guide.'", a book on camping in high humidity terrain. You open it to a random page;
 """
 container = false
 traits = ["book", "flamable"] 
@@ -60,9 +170,9 @@ accuracy = 0
 damage_reduction = 0
 ventilation = 0
 
-[item.book_on_solar_storms]
-display_name = "The solar storms of the 22nd century"
-item_description = """ "The solar storms of the 22nd century" by Feynman McPherron."""
+[items.book_on_solar_storms]
+display_name = "'The solar storms of the 22nd century'"
+item_description = """ 'The solar storms of the 22nd century' by Feynman McPherron."""
 container = false
 traits = ["book", "flamable"] 
 [items.book_on_solar_storms.stats]
