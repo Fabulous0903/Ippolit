@@ -140,7 +140,7 @@ def handle_command(
             game_state["output_history"].append(
                 "You need a moment to recuperate and to evaluate your options. There's four directions you can go, north, west, south, east,"
                 + " though there wont always be a way forward in a given direction. Your senses are yours to use, that can change... your eyes can look around,"
-                + " your ears can listen, and your nose can smell. You can check your pockets, and you kan look inside bags."
+                + " your ears can listen, and your nose can smell. You can check your pockets, you kan look inside bags, you can empty, take things out, and put things in a bag."
                 + " Taking inventory of your basic human functions reasures you that you are ready for what is to come."
             )
 

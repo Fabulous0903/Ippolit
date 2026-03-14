@@ -1,6 +1,6 @@
 ###___Items___###
 
-#[item.placeholder]
+#[items.placeholder]
 #display_name = "name to be displayed in-game"
 #item_description = """description of the item"""
 #container = false/true determines if item can contain other items
@@ -12,7 +12,7 @@
 #damage_reduction = 0 - 100
 #ventilation = 0 - 100
 
-#[item.weapon_placeholder]
+#[items.weapon_placeholder]
 #display_name = "name to be displayed in-game"
 #item_description = """description of the item"""
 #container = false/true determines if item can contain other items
@@ -23,7 +23,7 @@
 #range = 100
 #accuracy = 60
 
-#[item.gun_placeholder]
+#[items.gun_placeholder]
 #display_name = "name to be displayed in-game"
 #item_description = """description of the item"""
 #container = false
@@ -63,7 +63,7 @@
 
 [items.water_pouch]
 display_name = "water pouch"
-item_description = "A water pouch made of goatskin, it seems to be able to hold about 3 liters of liquid."
+item_description = "A goatskin water pouch, it seems to be able to hold about 3 liters of liquid."
 container = true
 liquid_container = true
 max_liquid_volume = 3
@@ -87,6 +87,21 @@ item_description = "A slice of old salted meat, looks... edible."
 container = false
 poisonous = false
 saturation = 55
+
+[items.wine]
+display_name = "bottle of wine"
+item_description = "A well aged bottle of wine, it has the same horrible crimson red color as the sun. Drinking this will ease your mind and let you momentarily forget your worries."
+container = false
+poisonous = false
+saturation = 20
+stress = -40
+
+[items.bag_of_wheat_seeds]
+display_name = "bag of wheat seeds"
+item_description = "A large bag of wheat seeds, they smell earthy. You would need these if you wanted to start a civilization"
+container = false
+poisonous = false
+saturation = 10
 
 ###___WEAPONS___###
 
@@ -113,7 +128,7 @@ physical_damage = 50
 range = 30
 accuracy = 60
 
-[item.six_shooter]
+[items.six_shooter]
 display_name = "six-shooter"
 item_description = """Deadly... but maybe not so accurate. The cylinder swings out from the chamber, and can hold upto six bullets."""
 container = false
@@ -124,7 +139,7 @@ accuracy = 40
 max_ammo = 6
 current_ammo = 0
 
-[item.44_round]
+[items.44_round]
 display_name = ".44 round"
 item_description = """A .44 caliber round."""
 container = false
@@ -137,7 +152,7 @@ accuracy = 10
 
 [items.green_robe]
 display_name = "white robe"
-item_description = """A linen robe as white as marble. It's plain, with few details, but you can feel the quality of the fabric when you glide your hand across the robe.
+item_description = """A linen robe as white as marble. It's plain, with few details, but you can feel the quality of the fabric when you glide your hand across the robe. \
 Being stylish isn't the only property of this piece of clothing, it's also well ventilated, and provides some cover from the suns rays"""
 container = false
 traits = ["beautiful", "upper_body_slot"]
@@ -156,11 +171,23 @@ accuracy = 0
 damage_reduction = 0
 ventilation = 0
 
+[items.opal_ring]
+display_name = "opal ring"
+item_description = """You stare deeply at the opal ring. The intricate patterns of countless different hues of green and blue enchant you, \
+you've never seen anything like it."""
+container = false
+traits = ["beatiful", "ring_slot"] 
+[items.placeholder.stats]
+physical_damage = 0 
+accuracy = 0
+damage_reduction = 0
+ventilation = 0 
+
 ###___BOOKS_AND_SIMILAR_ITEMS___###
 
 [items.book_on_status_effects]
 display_name = "'Camping in the jungle; a beginners guide.'"
-item_description = """ 'Cuamping in the jungle; a beginners guide.'", a book on camping in high humidity terrain. You open it to a random page;
+item_description = """ 'Camping in the jungle; a beginners guide.'", a book on camping in high humidity terrain. You open it to a random page;
 """
 container = false
 traits = ["book", "flamable"] 
@@ -176,6 +203,32 @@ item_description = """ 'The solar storms of the 22nd century' by Feynman McPherr
 container = false
 traits = ["book", "flamable"] 
 [items.book_on_solar_storms.stats]
+physical_damage = 0
+accuracy = 0
+damage_reduction = 0
+ventilation = 0
+
+[items.book_on_studying]
+display_name = "'The art of studying'"
+item_description = """ 'The art of studying' by Feynman McPherron. You open the book and read the introduction:
+
+'Everyday you wake up with two choices; To do what you normally do, following your routine, and excperiencing nothing new. \
+This isn't necessarily the wrong choice, having a healthy routine gives your life stability and predictability which, in the end, is the goal of most people. \
+However, this comes at the cost of what i would say is to truly live. When every single day is almost exactly the same, they blend together, \
+and all you remember in the end is those rare moments were the routine was broken. 
+
+But how can you achieve a safe and predictable life without sacrificing your soul? \
+You choose option two! And what is option two you say? well it is to learn ofcourse! When you read, when you learn, you experience someone elses experiences by just sitting still.\
+It is the poor mans way of truly living, it's cheap and it does the job. You are able to vicariously experience things you never would or could have normally. \
+I'm not saying to not go out and do new things, but if you wakeup and incorporate studying into your daily routine, then you will experience something new everyday.
+
+And in this book i will teach you how to learn in the best way possible, my way, which ...'
+
+You really have no interest in learning how to learn, so you close the book.
+"""
+container = false
+traits = ["book", "flamable"] 
+[items.book_on_studying.stats]
 physical_damage = 0
 accuracy = 0
 damage_reduction = 0

@@ -131,7 +131,7 @@ def empty_container(
     game_state["output_history"].append(
         "You take "
         + ", ".join(earlier_contents)
-        + " from the "
+        + ", from the "
         + container["display_name"]
     )
 
@@ -160,7 +160,7 @@ def look_inside_container(
 
     names = [items[k]["display_name"] for k in contents]
     game_state["output_history"].append(
-        " you look inside and see... " + ", ".join(names)
+        " You look inside and see: a " + ", ".join(names)
     )
 
 
@@ -171,7 +171,7 @@ def check_inventory(game_state: dict[str, str | int | list[str]], items) -> None
         return
 
     game_state["output_history"].append(
-        "you have... "
+        "You have: a "
         + ", ".join(items[item]["display_name"] for item in game_state["inventory"])
     )
 
@@ -211,5 +211,5 @@ def pick_up_instant(
 
     if earlier_room_contents:
         game_state["output_history"].append(
-            "You get " + ", ".join(earlier_room_contents)
+            "You get: a " + ", ".join(earlier_room_contents)
         )

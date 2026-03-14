@@ -115,13 +115,14 @@ def update_hunger_bar(game_state: dict[str, str | int | list[str]]):
 
     return hunger_bar
 
-def update_inventory_box(game_state: dict[str, str | int | list[str]]):
+def update_inventory_box(game_state: dict[str, str | int | list[str]], items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]]):
     inventory = game_state["inventory"]
-    inventory_box = "Your stuff: " + str(inventory)
+    inventory_box = "Your stuff: " + "\n".join(items[item]["display_name"] for item in inventory)
+    inventory_box_lines = inventory_box.split("\n")
 
     inventory_rect.x = output_rect.right + PADDING
     inventory_rect.y = hunger_rect.bottom + PADDING
     inventory_rect.w = 270
     inventory_rect.h = PADDING * 2 + LINE_HEIGHT
 
-    return inventory_box
+    return inventory_box_lines

@@ -2,7 +2,7 @@ import utility.pass_time as pass_time
 
 
 # Function that decreases hunger and adds hunger_effects
-def check_hunger(game_state):
+def check_hunger(game_state: dict[str, str |int| list[str]]) -> None:
     if 60 < game_state["hunger"] <= 80:
         game_state["hunger_effects"].clear()
         game_state["hunger_effects"].append("peckish")

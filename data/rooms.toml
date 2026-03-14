@@ -47,7 +47,7 @@ Your attempts to reach out to your surroundings are futile, for you have no body
 a place that is devoid of all sensation.
 
 Vague images of ways out drips into your mind, and a sense of direction emerges. When facing north, the collage of vague images transform into something more concrete. \
-You see the images of a person who is preaching with conviction to a mass of people. They're trying to convinve the group of their idealistic ideas. 
+You see the images of a person who is preaching with conviction to a mass of people, it seems that what he is preaching, isn't popular with the masses. 
 
 Turning east you see a small room crammed with books stacked all the way up to the ceiling. \
 In the centre of the room a person sits at a cluttered wooden desk, deeply invested in reading. \
@@ -59,7 +59,7 @@ In the center of the frame you see a single person standing. With their bloody s
 Lastly, in the south you see the image of a person all alone in a hospital bed. It seems that they arent far from death, and they have an expression of contemplation on their gaunt face. \
 On the bedside table sits a petty bouquet of withered flowers. Aside from the flowers, the sterile hospital room is completely empty.
 
-You have a strong feeling that the direction you choose to go will affect the experience that awaits you. \
+The choice is yours, what direction do you go? \
 If the anxiety of making a choice is too much, the option of doing nothing is always present..."""
 
 on_look = "There is no light"
@@ -85,7 +85,7 @@ display_name = "The abyss"
 bg_image = "placeholder.png"
 music = "placeholder.ogg"
 
-on_enter_first_sunset = """You focus intensively on the image of the person hunched over the book. Their curtiosity greatly interests you. \
+on_enter_first_sunset = """You focus intensively on the image of the person hunched over the book. \
 In the center of the image something is emerging, a green hue is beginning to envelope the scene. You can stay here in the nothingness, or you can go east, \
 and immerse yourself in the green hue."""
 
@@ -112,7 +112,7 @@ display_name = "The abyss"
 bg_image = "placeholder.png"
 music = "placeholder.ogg"
 
-on_enter_first_sunset = """You focus intensively on the image of the person surrounded by destruction. The violence of the scene greatly interests you. \
+on_enter_first_sunset = """You focus intensively on the image of the person surrounded by destruction. \
 In the center of the image something is emerging, a green hue is enveloping it. You can stay here in the nothingness, or you can go west, \
 and immerse yourself in the green hue."""
 
@@ -139,7 +139,9 @@ display_name = "The abyss"
 bg_image = "placeholder.png"
 music = "placeholder.ogg"
 
-on_enter_first_sunset = "text that shows when you enter a room for the first time during the day"
+on_enter_first_sunset = """You focus intensively on the image of the person preaching.  \
+In the center of the image something is emerging, a green hue is beginning to envelope the scene. You can stay here in the nothingness, or you can go east, \
+and immerse yourself in the green hue."""
 
 on_look = "There is no light"
 on_smell = "There is no smell"
@@ -147,15 +149,15 @@ on_listen = "There is no sound"
 
 actions = "actions that are possible in room"
 current_room_items = []
-instant_room_items = ["kebbie"]
+instant_room_items = ["wine", "bag_of_wheat_seeds", "opal_ring" ]
 time_tag = "none"
 type_of_room = "confined"
 
 [rooms.start_idealistic.exits]
-north = "closed: text that shows this way is closed"
-south = "closed: text that shows this way is closed"
-west = "closed: text that shows this way is closed"
-east = "closed: text that shows this way is closed"
+north = "open: desert_cave"
+south = "closed: You cant go back"
+west = "closed: You cant go back"
+east = "closed: You cant go back"
 enter = "closed: new room if open, this room is a room within this room."
 
 [rooms.start_miserable]
@@ -163,7 +165,9 @@ display_name = "The abyss"
 bg_image = "placeholder.png"
 music = "placeholder.ogg"
 
-on_enter_first_sunset = "text that shows when you enter a room for the first time during the day"
+on_enter_first_sunset = """You focus intensively on the image of the dying person.  \
+In the center of the image something is emerging, a green hue is beginning to envelope the scene. You can stay here in the nothingness, or you can go east, \
+and immerse yourself in the green hue."""
 
 on_look = "There is no light"
 on_smell = "There is no smell"
@@ -175,14 +179,11 @@ time_tag = "none"
 type_of_room = "confined"
 
 [rooms.start_miserable.exits]
-north = "closed: text that shows this way is closed"
-south = "closed: text that shows this way is closed"
-west = "closed: text that shows this way is closed"
-east = "closed: text that shows this way is closed"
+north = "closed: You cant go back"
+south = "open: desert_cave"
+west = "closed: You cant go back"
+east = "closed: You cant go back"
 enter = "closed: new room if open, this room is a room within this room."
-
-
-
 
 
 ###___Main_rooms___###
@@ -193,40 +194,40 @@ bg_image = "desertcave.png"
 music = "soundsofsand.ogg"
 
 # Text box
-on_enter_first_day = """A beam of light shines from the entrance. You find yourself in a damp limestone cave, leisurely sculpted  by the flow of water.
-Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
-In the far corner you see the bones of a creature. Traveling outside now would be unwise, you should wait for sunset."""
+#on_enter_first_day = """A beam of light shines from the entrance. You find yourself in a damp limestone cave, leisurely sculpted  by the flow of water.
+#Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+#In the far corner you see the bones of a creature. Traveling outside now would be unwise, you should wait for sunset."""
 
 on_enter_first_sunset = """Cool air from outside flows through your nostrils and deep into your lungs, marking the setting of the sun. \
 Rubbing your feet together under your blanket, and opening your eyes slightly, you find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water. \
-Stalactites and stalagmites clutter the roof and floor of the cave mixing together, giving the cave the semblence of some living thing. \
-Your staff leans on your satchel on the ground."""
+Stalactites and stalagmites clutter the roof and floor of the cave, mixing together, and giving the cave the semblence of some living amalgamation . \
+Your staff leans against the moist cave wall, and your satchel lies on the ground"""
 
-on_enter_first_night = "With your eyes closed, you listen; there is no sound coming from outside."
+#on_enter_first_night = "With your eyes closed, you listen; there is no sound coming from outside."
 
-on_enter_first_sunrise = """A sliver of light shines from the entrance. You find yourself in a damp limestone cave, leisurely sculpted  by the flow of water.
-Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
-In the far corner you see the bones of a creature. Traveling outside now would be unwise, you should wait for sunset."""
+#on_enter_first_sunrise = """A sliver of light shines from the entrance. You find yourself in a damp limestone cave, leisurely sculpted  by the flow of water.
+#Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+#In the far corner you see the bones of a creature. Traveling outside now would be unwise, you should wait for sunset."""
 
-on_enter_day = """A beam of light shines from the entrance. You find yourself in a damp limestone cave, leisurely sculpted  by the flow of water.
-Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
-In the far corner you see the bones of a creature. Traveling outside now would be unwise, you should wait for sunset."""
+on_enter_day = """A beam of light shines from the entrance. You find yourself in a damp limestone cave, leisurely sculpted  by the flow of water. \
+Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast. \
+In the far corner you see the bones of a creature. Traveling outside now would be unwise, you should wait for sunset.""" 
 
-on_enter_sunset = """You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water.
-Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+on_enter_sunset = """You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water. \
+Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast. \
 In the far corner, were the light of your torch barely touches, you can make out the faintest form of the bones of a creature."""
 
-on_enter_night = """You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water.
-Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+on_enter_night = """You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water. \
+Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast. \
 In the far corner, were the light of your torch barely touches, you can make out the faintest form of a creature's bones"""
 
-on_enter_sunrise = """You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water.
-Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast.
+on_enter_sunrise = """You find yourself in a dark and damp limestone cave, leisurely sculpted  by the flow of water. \
+Stalactites and stalagmites clutter the roof and floor of the cave, making the place resemble the inside of the jaws of a beast. \
 In the far corner, were the light of your torch barely touches, you can make out the faintest form of the bones of a creature."""
 
-on_look = """Solid walls of stone surround you, their mass sheltering you from the suffering outside.
-The cave splits off and goes deeper, but the tunnels seemes too small for a human, and you have no reason to go spelunking. Your long kebbie leans on your
-leather satchel besides you on the ground"""
+on_look = """Solid walls of stone surround you, their mass sheltering you from the suffering outside. \
+The cave splits off and goes deeper, but the tunnels seemes too small for a human, and you have no reason to go spelunking. \
+Your staff leans against the moist cave wall, and your satchel lies on the ground"""
 
 # Properties of room
 actions = "pick_up"

@@ -101,7 +101,7 @@ while is_running:
     input_lines = text.update_input(user_text)
     hunger_bar = text.update_hunger_bar(game_state)
     physical_condition_bar = text.update_physical_dondition_bar(game_state)
-    inventory_box = text.update_inventory_box(game_state)
+    inventory_box_lines = text.update_inventory_box(game_state, items)
 
     # Draws output box
     pg.draw.rect(screen, text.color_output, text.output_rect)
@@ -142,11 +142,13 @@ while is_running:
 
     # Draws inventory box
     pg.draw.rect(screen, text.color_input, text.inventory_rect)
-    text_surface = text.base_font.render(inventory_box, True, (196, 69, 54))
-    screen.blit(
-        text_surface,
-        (text.inventory_rect.x + text.PADDING, text.inventory_rect.y + text.PADDING),
-    )
+
+    for line in inventory_box_lines:
+        text_surface = text.base_font.render(inventory_box_lines, True, (196, 69, 54))
+        screen.blit(
+            text_surface,
+            (text.inventory_rect.x + text.PADDING, text.inventory_rect.y + text.PADDING),
+        )
 
     # Updates the display
     pg.display.flip()
