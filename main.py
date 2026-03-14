@@ -82,8 +82,8 @@ while is_running:
                 user_text += event.unicode
 
     screen.fill((20, 16, 18))
-    #dt = clock.tick(60)
-    #text.tick_output(dt)
+    # dt = clock.tick(60)
+    # text.tick_output(dt)
 
     # Changes color if mousebutton pressed input box
     if active_input:
@@ -145,7 +145,9 @@ while is_running:
     y_offset_inventory = text.inventory_rect.y + text.PADDING
 
     for line in inventory_box_lines:
-        text_surface = text.base_font.render(line, True, (196, 69, 54))  # 'line', not 'inventory_box_lines'
+        text_surface = text.base_font.render(
+            line, True, (196, 69, 54)
+        )  # 'line', not 'inventory_box_lines'
         screen.blit(
             text_surface,
             (text.inventory_rect.x + text.PADDING, y_offset_inventory),

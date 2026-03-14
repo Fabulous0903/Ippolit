@@ -4,6 +4,7 @@ import sys
 import utility.item_management as item_management
 import utility.movement as movement
 import utility.pass_time as pass_time
+import utility.resource_management as resource_management
 
 
 # Interprets user input
@@ -14,7 +15,7 @@ def handle_command(
     items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]],
 ) -> None:
     # Divides words that have spaces between, and interprits capital letters as lowercase
-    words = command.lower().split()
+    words = command.lower().replace("  ", " ").replace("  ", " ").split()
     room = rooms[game_state["current_room"]]
 
     # Logic for taking from and putting things in containers needs to use if logic and therefore comes before match words
@@ -66,7 +67,7 @@ def handle_command(
             if not item_key_segments:
                 game_state["output_history"].append(
                     "You look around as if you are about to pick something up."
-                    + " A mental haze clouds your mind, it is as if the thing you were about to pick up has fallen out of this world"
+                    + " A haze clouds your mind, it is as if the thing you were about to pick up has fallen out of this world"
                 )
                 return
             item_key = "_".join(item_key_segments)
@@ -75,6 +76,7 @@ def handle_command(
         case ["look"]:
             game_state["output_history"].append("Look at what?")
 
+        # item management
         case ["look", "inside", *container_key_segments]:
             container_key = "_".join(container_key_segments)
             item_management.look_inside_container(container_key, game_state, items)
@@ -90,18 +92,19 @@ def handle_command(
 
         case ["empty", *container_key_segments]:
             container_key = "_".join(container_key_segments)
-            container = items[container_key]
-            contents = container.get("contents", [])
-            for item_key in contents[:]:
-                item_management.empty_container(
-                    item_key, container_key, game_state, items
-                )
+            item_management.empty_container(container_key, game_state, items)
 
         case ["examine", *item_key_segments] | ["look", "at", *item_key_segments]:
             if not item_key_segments:
                 game_state["output_history"].append("what are you looking for?")
-            item_key = "_".join(item_key_segments)
-            item_management.examine_item(item_key, game_state, items)
+            display_name = " ".join(item_key_segments)
+            item_management.examine_item(display_name, game_state, items)
+
+        case ["eat", *display_name_segments]:
+            if not display_name_segments:
+                game_state["output_history"].append("what are you looking for?")
+            display_name = " ".join(display_name_segments)
+            resource_management.eating(game_state, items, display_name)
 
         # For passing time
         case ["sleep"]:
@@ -137,12 +140,8 @@ def handle_command(
             movement.movement_east(game_state, rooms, items)
 
         case ["help"]:
-            game_state["output_history"].append(
-                "You need a moment to recuperate and to evaluate your options. There's four directions you can go, north, west, south, east,"
-                + " though there wont always be a way forward in a given direction. Your senses are yours to use, that can change... your eyes can look around,"
-                + " your ears can listen, and your nose can smell. You can check your pockets, you kan look inside bags, you can empty, take things out, and put things in a bag."
-                + " Taking inventory of your basic human functions reasures you that you are ready for what is to come."
-            )
+            help_text = game_state["help"]
+            game_state["output_history"].append(help_text)
 
         case ["quit"]:
             pg.quit()

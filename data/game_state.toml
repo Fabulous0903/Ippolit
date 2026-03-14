@@ -11,11 +11,27 @@ hunger = 100
 hunger_effects = []
 physical_condition = 100
 walking_speed = 100
-
 inventory = []
-display_inventory = []
 
 # System
 time = ["hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour", "hour"]
 output_history = []
 
+# help
+help = """You need a moment to recuperate and to evaluate your options. 
+
+You can move north, east, west, and south, though there wont always be a way forward in a given direction. \
+you can also enter buildings by typing: "enter (building)"
+
+In a given toom you can: look, listen, smell, and feel.
+
+There may also be items in that room, and to pick them up you simply type: "pick up (item)" or "take (item)"
+
+Items aren't always what they seem to be, some items have even more items inside them, and are called containers. \
+To take an item from a container, type: "take (item) from (container)", to put it back, type: "put (item) in to (container)". \
+If that takes to much time, you can also take all the items out at the same time by typing: "empty (container)"
+
+Some items are edible, and can be eaten by: "eat (item)". But bewhare, even though an item can be eaten, doesn't mean it will be kind to you stomach.
+
+Use you resources sparingly."""
+ 

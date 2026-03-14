@@ -106,7 +106,7 @@ saturation = 10
 ###___WEAPONS___###
 
 [items.staff]
-display_name = "kebbie"
+display_name = "staff"
 item_description = """A hefty stick made for walking. It's tall and slender, almost stretching up to your face, \
 with a shepards hook at the end, and with a red cloth twined around where you would place your hand. \
 It is increadibly straight, as though nature destined it for a life of walking."""
@@ -120,7 +120,7 @@ accuracy = 60
 [items.hunting_knife]
 display_name = "hunting knife"
 item_description = """An enourmous blade, almost as long as your forearm, and with a width the same as the handle. \
-The knife's blade is full tang and goes through the entirety of the polished wood handle, it wont break easily  """
+The knife's blade goes through the entirety of the polished wood handle, it wont break easily  """
 container = false
 traits = ["sharp", "meele", "weapon_slot"]
 [items.hunting_knife.stats]
@@ -130,7 +130,7 @@ accuracy = 60
 
 [items.six_shooter]
 display_name = "six-shooter"
-item_description = """Deadly... but maybe not so accurate. The cylinder swings out from the chamber, and can hold upto six bullets."""
+item_description = """Deadly, but maybe not very accurate. The cylinder swings out from the chamber, and can hold upto six bullets."""
 container = false
 traits = ["weapon_slot", "ranged_weapon", "intimidating"] 
 [items.six_shooter.stats]
@@ -218,9 +218,9 @@ However, this comes at the cost of what i would say is to truly live. When every
 and all you remember in the end is those rare moments were the routine was broken. 
 
 But how can you achieve a safe and predictable life without sacrificing your soul? \
-You choose option two! And what is option two you say? well it is to learn ofcourse! When you read, when you learn, you experience someone elses experiences by just sitting still.\
+You choose option two! And what is option two you say? well it is to learn ofcourse! When you read, when you learn, you experience someone elses experiences by just sitting still and thinking.\
 It is the poor mans way of truly living, it's cheap and it does the job. You are able to vicariously experience things you never would or could have normally. \
-I'm not saying to not go out and do new things, but if you wakeup and incorporate studying into your daily routine, then you will experience something new everyday.
+I'm not saying to not go out and do new things, but if you incorporate studying into your daily routine, then you will experience something new everyday.
 
 And in this book i will teach you how to learn in the best way possible, my way, which ...'
 

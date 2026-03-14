@@ -1,3 +1,4 @@
+from collections import Counter
 # For picking up items in a given room
 def pick_up_items(
     item_key: str,
@@ -97,36 +98,49 @@ earlier_contents = []
 
 # Function for emptying all contents of a container into player inventory
 def empty_container(
-    item_key: str,
     container_key,
     game_state: dict[str, str | int | list[str]],
     items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]],
 ) -> None:
+    container = items[container_key]
+    contents = container.get("contents", [])
+    inventory = game_state["inventory"]
+    display_lines = []
+    items_to_be_removed = []
+
     # Checks for the container in inventory
     if container_key not in game_state["inventory"]:
         game_state["output_history"].append(
-            "You reach your hand into nothingness with the intention of pulling something out. It doesn't work..."
+            "You reach your hand into the air with the intention of pulling something out. It doesn't work..."
         )
         return
-
-    container = items[container_key]
 
     if not container.get("container"):
         game_state["output_history"].append(
-            "This does obviously not have anything in it."
+            "This cant have anything in it."
         )
         return
 
-    contents = container.get("contents", [])
-
-    if item_key not in contents:
+    if not contents:
         game_state["output_history"].append("It's empty")
         return
 
-    contents.remove(item_key)
-    game_state["inventory"].append(item_key)
-    item_name = items[item_key]["display_name"]
-    earlier_contents.append(item_name)
+    for item_key in contents:
+        inventory.append(item_key)
+        items_to_be_removed.append(item_key)
+        display_lines.append(items[item_key]["display_name"])
+
+    for item_key in items_to_be_removed:
+        contents.remove(item_key)
+
+    counts = list(Counter(display_lines).items())
+
+    for item, count in counts:
+        if count > 1:
+            earlier_contents.append(f"{item} x {count}")
+
+        else:
+            earlier_contents.append(item)
 
     game_state["output_history"].append(
         "You take "
@@ -134,6 +148,8 @@ def empty_container(
         + ", from the "
         + container["display_name"]
     )
+
+    
 
 
 # Function for listing items that are in a container
@@ -144,7 +160,7 @@ def look_inside_container(
 ) -> None:
     if container_key not in game_state["inventory"]:
         game_state["output_history"].append(
-            "You stretch your hand into the void of your pockets, you return nothing. Did you mean to reach for something else?"
+            "You stretch your hand into your pockets, you return nothing. Did you mean to reach for something else?"
         )
         return
 
@@ -160,7 +176,7 @@ def look_inside_container(
 
     names = [items[k]["display_name"] for k in contents]
     game_state["output_history"].append(
-        " You look inside and see: a " + ", ".join(names)
+        "You look inside and see: a " + ", ".join(names)
     )
 
 
@@ -178,36 +194,57 @@ def check_inventory(game_state: dict[str, str | int | list[str]], items) -> None
 
 # Function for displaying item description
 def examine_item(
-    item_key,
+    display_name,
     game_state: dict[str, str | int | list[str]],
     items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]],
 ) -> None:
-    if item_key not in game_state["inventory"]:
+    display_name_to_item_key = {
+        items[item_key].get("display_name", item_key): item_key for item_key in items
+    }
+    if display_name_to_item_key.get(display_name, None) not in game_state["inventory"]:
         game_state["output_history"].append(
-            "You stretch your hand into the void of your pockets, you return nothing. Did you mean to reach for something else?"
+            "You stretch your hand into your pockets, you return nothing. Did you mean to reach for something else?"
         )
         return
-    game_state["output_history"].append(items[item_key]["item_description"])
+    item_key = display_name_to_item_key[display_name]
+    item = items[item_key]
+    item_description = item["item_description"]
+    game_state["output_history"].append(item_description)
 
 
 def pick_up_instant(
     game_state: dict[str, str | int | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
-    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]]
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]],
 ) -> None:
     room_name = game_state["current_room"]
     room = rooms[room_name]
     instant_room_contents = room.get("instant_room_items", [])
+    inventory = game_state["inventory"]
     earlier_room_contents = []
+    display_lines = []
+    items_to_be_removed = []
 
     if not "instant_room_items":
         return
     else:
-        for item_key in instant_room_contents[:]:
+        for item_key in instant_room_contents:
+            inventory.append(item_key)
+            items_to_be_removed.append(item_key)
+            display_lines.append(items[item_key]["display_name"])
+    
+        for item_key in items_to_be_removed:
             instant_room_contents.remove(item_key)
-            game_state["inventory"].append(item_key)
-            item_name = items[item_key]["display_name"]
-            earlier_room_contents.append(item_name)
+
+        counts = list(Counter(display_lines).items())
+
+        for item, count in counts:
+            if count > 1:
+                earlier_room_contents.append(f"{item} x {count}")
+
+            else:
+                earlier_room_contents.append(item)
+
 
     if earlier_room_contents:
         game_state["output_history"].append(

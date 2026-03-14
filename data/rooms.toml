@@ -285,8 +285,8 @@ on_enter_first_sunset = """A vast hamada, only gravel as far you can see."""
 on_enter_first_night = """A vast hamada, only gravel as far you can see."""
 on_enter_first_sunrise = """A vast hamada, only gravel as far you can see."""
 
-on_enter_day = """The emotionless sun bathes the hamada in it's ray's of eradication, shining upon an ocean of gravel that stretches on as far your eyes allow you to see.
-It has scorched away all that used to live here, and you wil meet the same fate if you continue to stay out during the day,
+on_enter_day = """The emotionless sun bathes the hamada in it's ray's of eradication, shining upon an ocean of gravel that stretches on as far your eyes allow you to see. \
+It has scorched away all that used to live here, and you wil meet the same fate if you continue to stay out during the day, \
 your bones joining the perpetual sea of indiference."""
 on_enter_sunset = "text that shows when you enter the room during sunset"
 on_enter_night = "text that shows when you enter the room during the night"

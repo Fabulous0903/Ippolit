@@ -47,7 +47,7 @@ def enter_room(
     room_name: str,
     game_state: dict[str, str | int | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
-    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]] 
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]],
 ) -> None:
     game_state["current_room"] = room_name
     room = rooms[room_name]
@@ -77,7 +77,7 @@ def enter_room_text(
 def movement_north(
     game_state: dict[str, str | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
-    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]] 
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]],
 ) -> None:
     room_key = game_state["current_room"]
     room = rooms[room_key]
@@ -99,7 +99,7 @@ def movement_north(
 def movement_south(
     game_state: dict[str, str | int | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
-    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]] 
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]],
 ) -> None:
     room_key = game_state["current_room"]
     room = rooms[room_key]
@@ -121,7 +121,7 @@ def movement_south(
 def movement_west(
     game_state: dict[str, str | int | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
-    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]] 
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]],
 ) -> None:
     room_key = game_state["current_room"]
     room = rooms[room_key]
@@ -143,7 +143,7 @@ def movement_west(
 def movement_east(
     game_state: dict[str, str | int | list[str]],
     rooms: dict[str, dict[str, str | list[str] | dict[str, str]]],
-    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]] 
+    items: dict[str, dict[str, str | bool | list[str] | dict[str, int]]],
 ) -> None:
     room_key = game_state["current_room"]
     room = rooms[room_key]
